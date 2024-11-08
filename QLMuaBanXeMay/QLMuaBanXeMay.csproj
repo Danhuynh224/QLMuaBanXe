@@ -64,6 +64,7 @@
     <Compile Include="Class\NhanVien.cs" />
     <Compile Include="Class\PhuTung.cs" />
     <Compile Include="Class\TaiKhoan.cs" />
+    <Compile Include="Class\Voucher.cs" />
     <Compile Include="DAO\DAOCaLam.cs" />
     <Compile Include="DAO\DAOHoaDonPT.cs" />
     <Compile Include="DAO\DAOHoaDonXe.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="DAO\DAOPhuTung.cs" />
     <Compile Include="DAO\DAOTaiKhoan.cs" />
     <Compile Include="DAO\DAOThongTinKH.cs" />
+    <Compile Include="DAO\DAOVoucher.cs" />
     <Compile Include="DAO\DAOXeMay.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -142,6 +144,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLXePTDataSetvoucher.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSetvoucher.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_HoaDonPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +190,12 @@
     </Compile>
     <Compile Include="UC\UC_QLThongTinNhanVien.Designer.cs">
       <DependentUpon>UC_QLThongTinNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_QLVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_QLVoucher.Designer.cs">
+      <DependentUpon>UC_QLVoucher.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\UC_QLXe.cs">
       <SubType>UserControl</SubType>
@@ -256,6 +269,12 @@
     <Compile Include="WF\Form_ThemNhanVien.Designer.cs">
       <DependentUpon>Form_ThemNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="WF\Form_ThemVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Form_ThemVoucher.Designer.cs">
+      <DependentUpon>Form_ThemVoucher.cs</DependentUpon>
+    </Compile>
     <Compile Include="WF\Form_ThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +327,9 @@
     <EmbeddedResource Include="UC\UC_QLThongTinNhanVien.resx">
       <DependentUpon>UC_QLThongTinNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_QLVoucher.resx">
+      <DependentUpon>UC_QLVoucher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_QLXe.resx">
       <DependentUpon>UC_QLXe.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WF\Form_ThemNhanVien.resx">
       <DependentUpon>Form_ThemNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Form_ThemVoucher.resx">
+      <DependentUpon>Form_ThemVoucher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WF\Form_ThongTinKH.resx">
       <DependentUpon>Form_ThongTinKH.cs</DependentUpon>
@@ -496,6 +521,17 @@
     </None>
     <None Include="QLXePTDataSet3.xss">
       <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSetvoucher.xsc">
+      <DependentUpon>QLXePTDataSetvoucher.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSetvoucher.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSetvoucher.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSetvoucher.xss">
+      <DependentUpon>QLXePTDataSetvoucher.xsd</DependentUpon>
     </None>
     <None Include="Resources\form_main_login.png" />
   </ItemGroup>

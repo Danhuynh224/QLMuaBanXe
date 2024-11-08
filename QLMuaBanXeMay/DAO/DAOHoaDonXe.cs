@@ -62,6 +62,34 @@ namespace QLMuaBanXeMay.DAO
 
         internal static void ThemHoaDonXe(HoaDonXe hoaDonXe)
         {
+            using (SqlCommand checkCmd = new SqlCommand(@"SELECT CASE WHEN EXISTS (SELECT 1 FROM Nhan_Voucher WHERE CCCDKH = @CCCDKH AND MaVC = (SELECT TOP 1 MaVC FROM Voucher WHERE GiaTri <= @TongTien ORDER BY GiaTri DESC)) THEN 1 ELSE 0 END", MY_DB.getConnection()))
+            {
+                try
+                {
+                    MY_DB.openConnection();
+                    checkCmd.Parameters.AddWithValue("@CCCDKH", hoaDonXe.CCCDKH);
+                    checkCmd.Parameters.AddWithValue("@TongTien", hoaDonXe.TongTien);
+
+                    int exists = (int)checkCmd.ExecuteScalar();
+
+                    if (exists == 1)
+                    {
+                        MessageBox.Show("Khách hàng đã có voucher này trước đó.\nKhông được cập nhật thêm!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khách hàng vừa nhận được voucher mới");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+                finally
+                {
+                    MY_DB.closeConnection();
+                }
+            }
             using (SqlCommand command = new SqlCommand("ThemHoaDonXe", MY_DB.getConnection()))
             {
                 try

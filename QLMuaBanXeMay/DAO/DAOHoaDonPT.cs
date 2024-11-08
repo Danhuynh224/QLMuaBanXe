@@ -14,32 +14,60 @@ namespace QLMuaBanXeMay.DAO
     {
         public static int ThemHoaDonPT(HoaDonPT hoaDonPT)
         {
-                int maHDPT;
-                using (SqlCommand cmd = new SqlCommand("ThemHoaDonPT", MY_DB.getConnection()))
+            using (SqlCommand checkCmd = new SqlCommand(@"SELECT CASE WHEN EXISTS (SELECT 1 FROM Nhan_Voucher WHERE CCCDKH = @CCCDKH AND MaVC = (SELECT TOP 1 MaVC FROM Voucher WHERE GiaTri <= @TongTien ORDER BY GiaTri DESC)) THEN 1 ELSE 0 END", MY_DB.getConnection()))
+            {
+                try
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    MY_DB.openConnection();
+                    checkCmd.Parameters.AddWithValue("@CCCDKH", hoaDonPT.CCCDKH);
+                    checkCmd.Parameters.AddWithValue("@TongTien", hoaDonPT.TongTien);
 
-                    // Thêm tham số đầu vào
-                    cmd.Parameters.AddWithValue("@KhuyenMai", hoaDonPT.KhuyenMai);
-                    cmd.Parameters.AddWithValue("@TongTien", hoaDonPT.TongTien);
-                    cmd.Parameters.AddWithValue("@CCCDKH", hoaDonPT.CCCDKH);
-                    cmd.Parameters.AddWithValue("@CCCDNV", hoaDonPT.CCCDNV);
-                    cmd.Parameters.AddWithValue("@PTTT", hoaDonPT.PTTT);
-                    cmd.Parameters.AddWithValue("@NgayXuat", hoaDonPT.NgayXuat);
+                    int exists = (int)checkCmd.ExecuteScalar();
 
-                MY_DB.openConnection();
-                    SqlParameter outputIdParam = new SqlParameter("@MaHDPT", SqlDbType.Int)
+                    if (exists == 1)
                     {
-                        Direction = ParameterDirection.Output
-                    };
-                    cmd.Parameters.Add(outputIdParam);
-
-                    // Thực thi lệnh
-                    cmd.ExecuteNonQuery();
-                MY_DB.closeConnection();
-                    // Lấy giá trị MaHDPT vừa thêm
-                    maHDPT = Convert.ToInt32(outputIdParam.Value);
+                        MessageBox.Show("Khách hàng đã có voucher này trước đó.\nKhông được cập nhật thêm!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khách hàng vừa nhận được voucher mới");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+                finally
+                {
+                    MY_DB.closeConnection();
+                }
+            }
+            int maHDPT;
+            using (SqlCommand cmd = new SqlCommand("ThemHoaDonPT", MY_DB.getConnection()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@KhuyenMai", hoaDonPT.KhuyenMai);
+                cmd.Parameters.AddWithValue("@TongTien", hoaDonPT.TongTien);
+                cmd.Parameters.AddWithValue("@CCCDKH", hoaDonPT.CCCDKH);
+                cmd.Parameters.AddWithValue("@CCCDNV", hoaDonPT.CCCDNV);
+                cmd.Parameters.AddWithValue("@PTTT", hoaDonPT.PTTT);
+                cmd.Parameters.AddWithValue("@NgayXuat", hoaDonPT.NgayXuat);
+
+            MY_DB.openConnection();
+                SqlParameter outputIdParam = new SqlParameter("@MaHDPT", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(outputIdParam);
+
+                // Thực thi lệnh
+                cmd.ExecuteNonQuery();
+            MY_DB.closeConnection();
+                // Lấy giá trị MaHDPT vừa thêm
+                maHDPT = Convert.ToInt32(outputIdParam.Value);
+            }
         
             return maHDPT;
         }

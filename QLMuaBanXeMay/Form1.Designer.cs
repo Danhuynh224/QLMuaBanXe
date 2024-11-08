@@ -30,6 +30,7 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnGuest = new System.Windows.Forms.Button();
             this.btnMotobike = new System.Windows.Forms.Button();
@@ -37,10 +38,10 @@
             this.btnBillBike = new System.Windows.Forms.Button();
             this.btnBillTool = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
+            this.btn_calam = new System.Windows.Forms.Button();
+            this.btn_QLVoucher = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btn_calam = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 753);
             this.panel3.TabIndex = 0;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -68,10 +70,19 @@
             this.flowLayoutPanel1.Controls.Add(this.btnBillTool);
             this.flowLayoutPanel1.Controls.Add(this.btnThongKe);
             this.flowLayoutPanel1.Controls.Add(this.btn_calam);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 205);
+            this.flowLayoutPanel1.Controls.Add(this.btn_QLVoucher);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 156);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 478);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 516);
             this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(200, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1282, 753);
+            this.panel5.TabIndex = 1;
             // 
             // btnEmployee
             // 
@@ -178,6 +189,36 @@
             this.btnThongKe.UseVisualStyleBackColor = true;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
+            // btn_calam
+            // 
+            this.btn_calam.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btn_calam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_calam.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
+            this.btn_calam.Location = new System.Drawing.Point(3, 408);
+            this.btn_calam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_calam.Name = "btn_calam";
+            this.btn_calam.Size = new System.Drawing.Size(187, 54);
+            this.btn_calam.TabIndex = 14;
+            this.btn_calam.Text = "Quản lý ca làm việc";
+            this.btn_calam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_calam.UseVisualStyleBackColor = true;
+            this.btn_calam.Click += new System.EventHandler(this.btn_calam_Click);
+            // 
+            // btn_QLVoucher
+            // 
+            this.btn_QLVoucher.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btn_QLVoucher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLVoucher.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
+            this.btn_QLVoucher.Location = new System.Drawing.Point(3, 466);
+            this.btn_QLVoucher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_QLVoucher.Name = "btn_QLVoucher";
+            this.btn_QLVoucher.Size = new System.Drawing.Size(187, 50);
+            this.btn_QLVoucher.TabIndex = 15;
+            this.btn_QLVoucher.Text = "Quản lý Voucher";
+            this.btn_QLVoucher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_QLVoucher.UseVisualStyleBackColor = true;
+            this.btn_QLVoucher.Click += new System.EventHandler(this.btn_QLVoucher_Click);
+            // 
             // btnSignOut
             // 
             this.btnSignOut.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
@@ -197,33 +238,10 @@
             // 
             this.panel4.BackgroundImage = global::QLMuaBanXeMay.Properties.Resources.form_main_login;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(48, 95);
+            this.panel4.Location = new System.Drawing.Point(48, 44);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(90, 91);
             this.panel4.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(200, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1282, 753);
-            this.panel5.TabIndex = 1;
-            // 
-            // btn_calam
-            // 
-            this.btn_calam.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btn_calam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_calam.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
-            this.btn_calam.Location = new System.Drawing.Point(3, 408);
-            this.btn_calam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_calam.Name = "btn_calam";
-            this.btn_calam.Size = new System.Drawing.Size(187, 54);
-            this.btn_calam.TabIndex = 14;
-            this.btn_calam.Text = "Quản lý ca làm việc";
-            this.btn_calam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_calam.UseVisualStyleBackColor = true;
-            this.btn_calam.Click += new System.EventHandler(this.btn_calam_Click);
             // 
             // Form1
             // 
@@ -258,6 +276,7 @@
         private System.Windows.Forms.Button btnBillTool;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btn_calam;
+        private System.Windows.Forms.Button btn_QLVoucher;
     }
 }
 

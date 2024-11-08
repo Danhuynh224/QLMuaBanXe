@@ -29,6 +29,7 @@ namespace QLMuaBanXeMay
             {
                 btnBillTool.Visible = false;
                 btnTool.Visible = false;
+                btn_QLVoucher.Visible = false;
                 
                 btnEmployee.Visible = false;
             }else if(NhanVien.ChucVu== "Kỹ Thuật")
@@ -36,6 +37,7 @@ namespace QLMuaBanXeMay
                 btnBillBike.Visible = false;
                 btnMotobike.Visible = false;
                 btnEmployee.Visible = false;
+                btn_QLVoucher.Visible= false;
             }
             btnThongKe.Visible = false;
         }
@@ -123,6 +125,17 @@ namespace QLMuaBanXeMay
             uc.Dock = DockStyle.Fill;
         }
 
- 
+        private void btn_QLVoucher_Click(object sender, EventArgs e)
+        {
+            UC_QLVoucher uc = new UC_QLVoucher(NhanVien);
+            panel5.Controls.Clear();
+            panel5.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

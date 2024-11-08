@@ -69,3 +69,5 @@ D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBan.EF1D6A39.Up2Date
 D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.exe
 D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.pdb
 D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_HoaDonLuong.resources
+D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonNVThemLuong.resources
+D:\DBMS\DoAn\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThemHoaDonLuong.resources

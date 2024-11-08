@@ -108,7 +108,6 @@ namespace QLMuaBanXeMay.UC
             try
             {
                 Class.HoaDonXe hoaDonXe = new HoaDonXe();
-                hoaDonXe.MaHDXe = Convert.ToInt32(txt_maHD.Text);
                 hoaDonXe.MaXe = Convert.ToInt32(txt_maXe.Text);
                 hoaDonXe.KhuyenMai = (double)Math.Round(double.Parse(txt_khuyenMai.Text), 2, MidpointRounding.AwayFromZero);
                 hoaDonXe.TongTien = float.Parse(txt_thanhTien.Text);

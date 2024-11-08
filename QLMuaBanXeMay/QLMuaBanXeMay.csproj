@@ -56,6 +56,7 @@
     <Compile Include="Class\CaLam.cs" />
     <Compile Include="Class\ChiTietCaLam.cs" />
     <Compile Include="Class\HoaDonChiTietPhuTung.cs" />
+    <Compile Include="Class\HoaDonLuong.cs" />
     <Compile Include="Class\HoaDonPhuTung.cs" />
     <Compile Include="Class\HoaDonXeMay.cs" />
     <Compile Include="Class\KhachHang.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Class\TaiKhoan.cs" />
     <Compile Include="Class\Voucher.cs" />
     <Compile Include="DAO\DAOCaLam.cs" />
+    <Compile Include="DAO\DAOHoaDonLuong.cs" />
     <Compile Include="DAO\DAOHoaDonPT.cs" />
     <Compile Include="DAO\DAOHoaDonXe.cs" />
     <Compile Include="DAO\DAOKhachHang.cs" />

@@ -140,7 +140,7 @@ namespace QLMuaBanXeMay
 
         private void btnHoaDonLuong_Click(object sender, EventArgs e)
         {
-            UC_QLVoucher uc = new UC_QLVoucher(NhanVien);
+            UC_HoaDonLuong uc = new UC_HoaDonLuong();
             panel5.Controls.Clear();
             panel5.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;

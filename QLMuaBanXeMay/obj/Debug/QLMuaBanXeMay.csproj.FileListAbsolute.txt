@@ -1,6 +1,11 @@
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.exe.config
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.exe
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.pdb
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\Guna.UI2.dll
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.csproj.AssemblyReference.cache
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.Form1.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.Properties.Resources.resources
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_HoaDonLuong.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_HoaDonPT.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_HoaDonXee.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC_MainScreen.resources
@@ -16,8 +21,10 @@ D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_ThongKeTheoNhanVien.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_ThongKeTheoThang.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonNV.resources
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonNVThemLuong.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonThoiGian.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_DangNhap.resources
+D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThemHoaDonLuong.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThemKhachHang.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThemNhanVien.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThemVoucher.resources
@@ -26,10 +33,6 @@ D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Fo
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ThongTinXe.resources
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.csproj.GenerateResource.cache
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.csproj.CoreCompileInputs.cache
-D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.exe.config
-D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.exe
-D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\QLMuaBanXeMay.pdb
-D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\bin\Debug\Guna.UI2.dll
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.csproj.CopyComplete
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.exe
 D:\HK1_24-25\DBMS\DoAn811\QLMuaBanXe\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.pdb

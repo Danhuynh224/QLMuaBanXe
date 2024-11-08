@@ -30,7 +30,6 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnGuest = new System.Windows.Forms.Button();
             this.btnMotobike = new System.Windows.Forms.Button();
@@ -42,6 +41,8 @@
             this.btn_QLVoucher = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnHoaDonLuong = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,18 +72,11 @@
             this.flowLayoutPanel1.Controls.Add(this.btnThongKe);
             this.flowLayoutPanel1.Controls.Add(this.btn_calam);
             this.flowLayoutPanel1.Controls.Add(this.btn_QLVoucher);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 156);
+            this.flowLayoutPanel1.Controls.Add(this.btnHoaDonLuong);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 108);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 516);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 575);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(200, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1282, 753);
-            this.panel5.TabIndex = 1;
             // 
             // btnEmployee
             // 
@@ -238,10 +232,33 @@
             // 
             this.panel4.BackgroundImage = global::QLMuaBanXeMay.Properties.Resources.form_main_login;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(48, 44);
+            this.panel4.Location = new System.Drawing.Point(56, 11);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(90, 91);
             this.panel4.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(200, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1282, 753);
+            this.panel5.TabIndex = 1;
+            // 
+            // btnHoaDonLuong
+            // 
+            this.btnHoaDonLuong.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnHoaDonLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDonLuong.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
+            this.btnHoaDonLuong.Location = new System.Drawing.Point(3, 520);
+            this.btnHoaDonLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHoaDonLuong.Name = "btnHoaDonLuong";
+            this.btnHoaDonLuong.Size = new System.Drawing.Size(187, 54);
+            this.btnHoaDonLuong.TabIndex = 16;
+            this.btnHoaDonLuong.Text = "Quản lý hóa đơn lương";
+            this.btnHoaDonLuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHoaDonLuong.UseVisualStyleBackColor = true;
+            this.btnHoaDonLuong.Click += new System.EventHandler(this.btnHoaDonLuong_Click);
             // 
             // Form1
             // 
@@ -277,6 +294,7 @@
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btn_calam;
         private System.Windows.Forms.Button btn_QLVoucher;
+        private System.Windows.Forms.Button btnHoaDonLuong;
     }
 }
 

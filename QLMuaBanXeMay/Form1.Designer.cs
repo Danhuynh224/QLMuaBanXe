@@ -40,6 +40,7 @@
             this.btnSignOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_calam = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +67,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnBillBike);
             this.flowLayoutPanel1.Controls.Add(this.btnBillTool);
             this.flowLayoutPanel1.Controls.Add(this.btnThongKe);
+            this.flowLayoutPanel1.Controls.Add(this.btn_calam);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 205);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 411);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 478);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnEmployee
@@ -208,6 +210,21 @@
             this.panel5.Size = new System.Drawing.Size(1282, 753);
             this.panel5.TabIndex = 1;
             // 
+            // btn_calam
+            // 
+            this.btn_calam.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btn_calam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_calam.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
+            this.btn_calam.Location = new System.Drawing.Point(3, 408);
+            this.btn_calam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_calam.Name = "btn_calam";
+            this.btn_calam.Size = new System.Drawing.Size(187, 54);
+            this.btn_calam.TabIndex = 14;
+            this.btn_calam.Text = "Quản lý ca làm việc";
+            this.btn_calam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_calam.UseVisualStyleBackColor = true;
+            this.btn_calam.Click += new System.EventHandler(this.btn_calam_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -240,6 +257,7 @@
         private System.Windows.Forms.Button btnBillBike;
         private System.Windows.Forms.Button btnBillTool;
         private System.Windows.Forms.Button btnThongKe;
+        private System.Windows.Forms.Button btn_calam;
     }
 }
 

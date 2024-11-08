@@ -33,9 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.xeMayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLMuaBanXeMayDataSet = new QLMuaBanXeMay.QLMuaBanXeMayDataSet();
-            this.xeMayTableAdapter = new QLMuaBanXeMay.QLMuaBanXeMayDataSetTableAdapters.XeMayTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Xe_GridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -77,28 +74,17 @@
             this.HangSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NamSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.xeMayBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLMuaBanXeMayDataSet)).BeginInit();
+            this.xeMayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLMuaBanXeMayDataSet = new QLMuaBanXeMay.QLMuaBanXeMayDataSet();
+            this.xeMayTableAdapter = new QLMuaBanXeMay.QLMuaBanXeMayDataSetTableAdapters.XeMayTableAdapter();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Xe_GridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grBox_Congcu.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xeMayBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLMuaBanXeMayDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // xeMayBindingSource
-            // 
-            this.xeMayBindingSource.DataMember = "XeMay";
-            this.xeMayBindingSource.DataSource = this.qLMuaBanXeMayDataSet;
-            // 
-            // qLMuaBanXeMayDataSet
-            // 
-            this.qLMuaBanXeMayDataSet.DataSetName = "QLMuaBanXeMayDataSet";
-            this.qLMuaBanXeMayDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // xeMayTableAdapter
-            // 
-            this.xeMayTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox2
             // 
@@ -595,6 +581,20 @@
             this.TinhTrang.Name = "TinhTrang";
             this.TinhTrang.ReadOnly = true;
             // 
+            // xeMayBindingSource
+            // 
+            this.xeMayBindingSource.DataMember = "XeMay";
+            this.xeMayBindingSource.DataSource = this.qLMuaBanXeMayDataSet;
+            // 
+            // qLMuaBanXeMayDataSet
+            // 
+            this.qLMuaBanXeMayDataSet.DataSetName = "QLMuaBanXeMayDataSet";
+            this.qLMuaBanXeMayDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // xeMayTableAdapter
+            // 
+            this.xeMayTableAdapter.ClearBeforeFill = true;
+            // 
             // UC_QLXe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -606,14 +606,14 @@
             this.Name = "UC_QLXe";
             this.Size = new System.Drawing.Size(1300, 721);
             this.Load += new System.EventHandler(this.UC_QLXe_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.xeMayBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLMuaBanXeMayDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Xe_GridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grBox_Congcu.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xeMayBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLMuaBanXeMayDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -114,5 +114,15 @@ namespace QLMuaBanXeMay
             panel5.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
         }
+
+        private void btn_calam_Click(object sender, EventArgs e)
+        {
+            UC_PhanCa uc = new UC_PhanCa(NhanVien);
+            panel5.Controls.Clear();
+            panel5.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+ 
     }
 }

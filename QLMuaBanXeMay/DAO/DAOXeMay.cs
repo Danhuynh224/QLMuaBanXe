@@ -18,6 +18,7 @@ namespace QLMuaBanXeMay.DAO
             string sql;
             if (chucvu == "Bán Hàng") 
             {
+                MessageBox.Show("11111");
                 sql = "SELECT * FROM dbo.GetAllXeBanHang()";
             }
             else 
@@ -33,7 +34,7 @@ namespace QLMuaBanXeMay.DAO
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-
+                    MessageBox.Show(sql);
                     MY_DB.closeConnection();
 
                     return dt;

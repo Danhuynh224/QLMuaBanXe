@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\CaLam.cs" />
+    <Compile Include="Class\ChiTietCaLam.cs" />
     <Compile Include="Class\HoaDonChiTietPhuTung.cs" />
     <Compile Include="Class\HoaDonPhuTung.cs" />
     <Compile Include="Class\HoaDonXeMay.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Class\NhanVien.cs" />
     <Compile Include="Class\PhuTung.cs" />
     <Compile Include="Class\TaiKhoan.cs" />
+    <Compile Include="DAO\DAOCaLam.cs" />
     <Compile Include="DAO\DAOHoaDonPT.cs" />
     <Compile Include="DAO\DAOHoaDonXe.cs" />
     <Compile Include="DAO\DAOKhachHang.cs" />
@@ -119,6 +122,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLMuaBanXeMayDataSet7.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLXePTDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLXePTDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLXePTDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLXePTDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_HoaDonPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -136,6 +159,12 @@
     </Compile>
     <Compile Include="UC\UC_MainScreen.Designer.cs">
       <DependentUpon>UC_MainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_PhanCa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_PhanCa.Designer.cs">
+      <DependentUpon>UC_PhanCa.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\UC_QLPhuTung.cs">
       <SubType>UserControl</SubType>
@@ -190,6 +219,18 @@
     </Compile>
     <Compile Include="UC\UC_ThongKeTheoThang.Designer.cs">
       <DependentUpon>UC_ThongKeTheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Form_ChonNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Form_ChonNV.Designer.cs">
+      <DependentUpon>Form_ChonNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Form_ChonThoiGian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Form_ChonThoiGian.Designer.cs">
+      <DependentUpon>Form_ChonThoiGian.cs</DependentUpon>
     </Compile>
     <Compile Include="WF\Form_DangNhap.cs">
       <SubType>Form</SubType>
@@ -255,6 +296,9 @@
     <EmbeddedResource Include="UC\UC_MainScreen.resx">
       <DependentUpon>UC_MainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_PhanCa.resx">
+      <DependentUpon>UC_PhanCa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_QLPhuTung.resx">
       <DependentUpon>UC_QLPhuTung.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_ThongKeTheoThang.resx">
       <DependentUpon>UC_ThongKeTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Form_ChonNV.resx">
+      <DependentUpon>Form_ChonNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Form_ChonThoiGian.resx">
+      <DependentUpon>Form_ChonThoiGian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WF\Form_DangNhap.resx">
       <DependentUpon>Form_DangNhap.cs</DependentUpon>
@@ -402,6 +452,50 @@
     </None>
     <None Include="QLMuaBanXeMayDataSet7.xss">
       <DependentUpon>QLMuaBanXeMayDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet.xsc">
+      <DependentUpon>QLXePTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSet.xss">
+      <DependentUpon>QLXePTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet1.xsc">
+      <DependentUpon>QLXePTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSet1.xss">
+      <DependentUpon>QLXePTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet2.xsc">
+      <DependentUpon>QLXePTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSet2.xss">
+      <DependentUpon>QLXePTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet3.xsc">
+      <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSet3.xss">
+      <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Resources\form_main_login.png" />
   </ItemGroup>

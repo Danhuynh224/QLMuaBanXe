@@ -88,3 +88,6 @@ D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.csproj.CoreCompileIn
 D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBan.EF1D6A39.Up2Date
 D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.exe
 D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.pdb
+D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.UC.UC_PhanCa.resources
+D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonThoiGian.resources
+D:\DBMS\QLMuaBanXeMay\QLMuaBanXeMay\obj\Debug\QLMuaBanXeMay.WF.Form_ChonNV.resources

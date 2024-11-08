@@ -65,7 +65,29 @@ namespace QLMuaBanXeMay.DAO
                 }
             }
         }
+        public static DataTable LayThongTinNhanVienCaLam()
+        {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.GetNhanVien()", MY_DB.getConnection()))
+            {
+                try
+                {
+                    MY_DB.openConnection();
 
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    MY_DB.closeConnection();
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return null;
+                }
+            }
+        }
         public static void SuaNhanVien(NhanVien nhanVien)
         {
             using (SqlCommand command = new SqlCommand("SuaNhanVien", MY_DB.getConnection()))

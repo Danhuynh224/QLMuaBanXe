@@ -144,6 +144,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLXePTDataSetTTVCKH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLXePTDataSetTTVCKH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QLXePTDataSetvoucher.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -521,6 +526,17 @@
     </None>
     <None Include="QLXePTDataSet3.xss">
       <DependentUpon>QLXePTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSetTTVCKH.xsc">
+      <DependentUpon>QLXePTDataSetTTVCKH.xsd</DependentUpon>
+    </None>
+    <None Include="QLXePTDataSetTTVCKH.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLXePTDataSetTTVCKH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLXePTDataSetTTVCKH.xss">
+      <DependentUpon>QLXePTDataSetTTVCKH.xsd</DependentUpon>
     </None>
     <None Include="QLXePTDataSetvoucher.xsc">
       <DependentUpon>QLXePTDataSetvoucher.xsd</DependentUpon>

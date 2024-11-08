@@ -21,7 +21,6 @@ namespace QLMuaBanXeMay
     public partial class UC_QLPhuTung : UserControl
     {
 
-
         PhuTung phuTung = new PhuTung();
         KhachHang khachHang = new KhachHang();
         List<ChiTietHD_PT> listHDPT = new List<ChiTietHD_PT>();

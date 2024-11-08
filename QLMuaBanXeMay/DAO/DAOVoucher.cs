@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.UI.WebControls;
 
 namespace QLMuaBanXeMay.DAO
 {
@@ -58,6 +59,29 @@ namespace QLMuaBanXeMay.DAO
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+        public static DataTable LayThongTinVC(int cccd)
+        {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM GetVouchersByCustomer(@CCCD)", MY_DB.getConnection()))
+            {
+                try
+                {
+                    MY_DB.openConnection();
+                    command.Parameters.AddWithValue("@CCCD", cccd);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    MY_DB.closeConnection();
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return null;
                 }
             }
         }

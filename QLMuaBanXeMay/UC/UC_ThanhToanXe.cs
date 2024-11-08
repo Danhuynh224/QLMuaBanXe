@@ -1,4 +1,5 @@
 ﻿using QLMuaBanXeMay.Class;
+using QLMuaBanXeMay.DAO;
 using QLMuaBanXeMay.WF;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,7 @@ namespace QLMuaBanXeMay.UC
             {
                 khachHang_tt = kh.KhachHang1;
                 UC_ThanhToanXe_Load(xeMay_tt, khachHang_tt);
+                LoadCBB(khachHang_tt.CCCDKH);
             }
            
         }
@@ -106,7 +108,6 @@ namespace QLMuaBanXeMay.UC
             try
             {
                 Class.HoaDonXe hoaDonXe = new HoaDonXe();
-                hoaDonXe.MaHDXe = Convert.ToInt32(txt_maHD.Text);
                 hoaDonXe.MaXe = Convert.ToInt32(txt_maXe.Text);
                 hoaDonXe.KhuyenMai = (double)Math.Round(double.Parse(txt_khuyenMai.Text), 2, MidpointRounding.AwayFromZero);
                 hoaDonXe.TongTien = float.Parse(txt_thanhTien.Text);
@@ -124,6 +125,37 @@ namespace QLMuaBanXeMay.UC
                 MessageBox.Show("Vui lòng chọn xe");
             }
             
+        }
+        private void LoadCBB(int cccd)
+        {
+            DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
+            if (voucherTable.Rows.Count > 0)
+            {
+                // Gán DataTable vào ComboBox
+                cb_VC.DataSource = voucherTable;
+                cb_VC.DisplayMember = "TenVC"; // Hiển thị tên voucher
+                cb_VC.ValueMember = "MaVC";    // Giá trị là mã voucher
+            }
+            else
+            {
+                MessageBox.Show("Không có voucher nào cho khách hàng này.");
+            }
+        }
+        private void UC_ThanhToanXe_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_VC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_VC.SelectedItem != null)
+            {
+                DataRowView selectedVoucher = (DataRowView)cb_VC.SelectedItem;
+
+                // Hiển thị giá trị và giảm giá của voucher trên TextBox
+                txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
+                txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
+            }
         }
     }
 }

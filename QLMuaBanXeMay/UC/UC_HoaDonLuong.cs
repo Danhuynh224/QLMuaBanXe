@@ -107,5 +107,11 @@ namespace QLMuaBanXeMay.UC
                 dgvHoaDonLuong.DataSource = result;
             }
         }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            Form_ChiTietHoaDonLuong form = new Form_ChiTietHoaDonLuong();
+            form.ShowDialog();
+        }
     }
 }

@@ -521,6 +521,7 @@
             this.btnTimMaHD.TabIndex = 1;
             this.btnTimMaHD.Text = "Tìm kiếm";
             this.btnTimMaHD.UseVisualStyleBackColor = true;
+            this.btnTimMaHD.Click += new System.EventHandler(this.btnTimMaHD_Click);
             // 
             // txtTimMaHD
             // 

@@ -39,10 +39,10 @@
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btn_calam = new System.Windows.Forms.Button();
             this.btn_QLVoucher = new System.Windows.Forms.Button();
+            this.btnHoaDonLuong = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnHoaDonLuong = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -213,6 +213,21 @@
             this.btn_QLVoucher.UseVisualStyleBackColor = true;
             this.btn_QLVoucher.Click += new System.EventHandler(this.btn_QLVoucher_Click);
             // 
+            // btnHoaDonLuong
+            // 
+            this.btnHoaDonLuong.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnHoaDonLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDonLuong.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
+            this.btnHoaDonLuong.Location = new System.Drawing.Point(3, 520);
+            this.btnHoaDonLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHoaDonLuong.Name = "btnHoaDonLuong";
+            this.btnHoaDonLuong.Size = new System.Drawing.Size(187, 54);
+            this.btnHoaDonLuong.TabIndex = 16;
+            this.btnHoaDonLuong.Text = "Quản lý hóa đơn lương";
+            this.btnHoaDonLuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHoaDonLuong.UseVisualStyleBackColor = true;
+            this.btnHoaDonLuong.Click += new System.EventHandler(this.btnHoaDonLuong_Click);
+            // 
             // btnSignOut
             // 
             this.btnSignOut.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
@@ -244,21 +259,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1282, 753);
             this.panel5.TabIndex = 1;
-            // 
-            // btnHoaDonLuong
-            // 
-            this.btnHoaDonLuong.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnHoaDonLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoaDonLuong.Image = global::QLMuaBanXeMay.Properties.Resources.form_main_bills_tools;
-            this.btnHoaDonLuong.Location = new System.Drawing.Point(3, 520);
-            this.btnHoaDonLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHoaDonLuong.Name = "btnHoaDonLuong";
-            this.btnHoaDonLuong.Size = new System.Drawing.Size(187, 54);
-            this.btnHoaDonLuong.TabIndex = 16;
-            this.btnHoaDonLuong.Text = "Quản lý hóa đơn lương";
-            this.btnHoaDonLuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHoaDonLuong.UseVisualStyleBackColor = true;
-            this.btnHoaDonLuong.Click += new System.EventHandler(this.btnHoaDonLuong_Click);
             // 
             // Form1
             // 

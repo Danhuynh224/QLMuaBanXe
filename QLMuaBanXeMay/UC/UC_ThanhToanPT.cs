@@ -110,6 +110,9 @@ namespace QLMuaBanXeMay.UC
         }
         private void LoadCBB(int cccd)
         {
+            txt_giamgia.Text = string.Empty;
+            txt_ggToida.Text = string.Empty;
+            cb_VC.DataSource = null;
             DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
             if (voucherTable.Rows.Count > 0)
             {

@@ -39,8 +39,7 @@ namespace QLMuaBanXeMay.Class
             get { return soLuong; }
             set
             {
-                if (value <= 0)
-                    throw new ArgumentException("SoLuong must be greater than 0.");
+                
                 soLuong = value;
             }
         }

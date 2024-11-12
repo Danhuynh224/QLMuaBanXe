@@ -51,7 +51,7 @@ namespace QLMuaBanXeMay.Class
             get { return tongTien; }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                     throw new ArgumentException("TongTien must be greater than 0.");
                 tongTien = value;
             }

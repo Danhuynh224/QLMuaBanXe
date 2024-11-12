@@ -96,6 +96,31 @@ namespace QLMuaBanXeMay.DAO
                 }
             }
         }
+        public static void SuaTongTienHDPT(int maHDPT, string thanhtien, string pttt)
+        {
+            using (SqlCommand command = new SqlCommand("CapNhatThanhTienChoHDPT", MY_DB.getConnection()))
+            {
+                try
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@MaHDPT", maHDPT);
+                    command.Parameters.AddWithValue("@ThanhTien", thanhtien);
+                    command.Parameters.AddWithValue("@PTTT", pttt);
+                    MessageBox.Show("Test");
+                    MY_DB.openConnection();
+
+                    command.ExecuteNonQuery();
+
+                    MY_DB.closeConnection();
+                    MessageBox.Show("Xuất hóa đơn thành công");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
         public static DataTable Load_ViewHD()
         {
             using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.GetHoaDonPT()", MY_DB.getConnection()))
@@ -167,6 +192,30 @@ namespace QLMuaBanXeMay.DAO
                     return "0";
                 }
              
+            }
+        }
+        public static String TinhTienHoaDon(int maHDPT, int mavc)
+        {
+
+            using (SqlCommand command = new SqlCommand("SELECT dbo.TinhThanhTienHDPT(@MaHDPT, @MaVC)", MY_DB.getConnection()))
+            {
+                try
+                {
+                    command.Parameters.AddWithValue("@MaHDPT", maHDPT);
+                    command.Parameters.AddWithValue("@MaVC", mavc);
+                    MY_DB.openConnection();
+                    string thanhtien = command.ExecuteScalar().ToString();
+
+                    MY_DB.closeConnection();
+
+                    return thanhtien ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return "0";
+                }
+
             }
         }
     }

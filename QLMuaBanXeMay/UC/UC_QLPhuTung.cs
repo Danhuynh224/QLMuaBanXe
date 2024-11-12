@@ -138,5 +138,10 @@ namespace QLMuaBanXeMay
                 MessageBox.Show("Vui lòng chọn phụ tùng");
             }
         }
+
+        private void UC_QLPhuTung_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

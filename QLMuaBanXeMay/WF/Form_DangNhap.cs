@@ -50,6 +50,10 @@ namespace QLMuaBanXeMay.WF
                                 DangNhap.password = txt_matkhau.Text;
                                 MY_DB.setConnectionNV();
                             }
+                            else
+                            {
+                                MY_DB.setConnectionQL();
+                            }
 
                             NhanVien nhanVien = new NhanVien(cccdNV,tenNV,ngaySinh,gioiTinh,sdt,diaChi,email,chucVu);
                             Form1 form1 = new Form1(nhanVien);

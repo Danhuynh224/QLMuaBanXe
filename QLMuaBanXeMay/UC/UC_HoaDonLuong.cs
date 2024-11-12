@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -74,6 +75,43 @@ namespace QLMuaBanXeMay.UC
                     Load_GridView();
                 }
             }
+        }
+
+        private void btnTimMaHD_Click(object sender, EventArgs e)
+        {
+            string maHDL = txtTimMaHD.Text.Trim();
+
+            if (string.IsNullOrEmpty(maHDL))
+            {
+                MessageBox.Show("Vui lòng nhập mã hóa đơn để tìm kiếm.", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra đúng định dạng (chỉ nhập số)
+            if (!Regex.IsMatch(maHDL, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Định dạng mã hóa đơn không hợp lệ. Vui lòng nhập mã hợp lệ.", "Dữ liệu không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            var result = DAOHoaDonLuong.TimHoaDonLuongTheoMaHDL(maHDL);
+
+            if (result == null || result.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy hóa đơn nào với mã đã nhập.", "Không có kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvHoaDonLuong.DataSource = null; 
+            }
+            else
+            {
+                dgvHoaDonLuong.DataSource = result;
+            }
+        }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            Form_ChiTietHoaDonLuong form = new Form_ChiTietHoaDonLuong();
+            form.ShowDialog();
         }
     }
 }

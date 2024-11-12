@@ -60,6 +60,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dataGridViewPT = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txt_ggToida = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt_giamgia = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cb_VC = new Guna.UI2.WinForms.Guna2ComboBox();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -417,9 +422,68 @@
             this.dataGridViewPT.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewPT.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // txt_ggToida
+            // 
+            this.txt_ggToida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ggToida.Location = new System.Drawing.Point(633, 713);
+            this.txt_ggToida.Name = "txt_ggToida";
+            this.txt_ggToida.Size = new System.Drawing.Size(77, 27);
+            this.txt_ggToida.TabIndex = 22;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Blue;
+            this.label24.Location = new System.Drawing.Point(550, 720);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 20);
+            this.label24.TabIndex = 21;
+            this.label24.Text = "Giới Hạn:";
+            // 
+            // txt_giamgia
+            // 
+            this.txt_giamgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_giamgia.Location = new System.Drawing.Point(394, 713);
+            this.txt_giamgia.Name = "txt_giamgia";
+            this.txt_giamgia.Size = new System.Drawing.Size(140, 27);
+            this.txt_giamgia.TabIndex = 20;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Blue;
+            this.label23.Location = new System.Drawing.Point(311, 720);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(81, 20);
+            this.label23.TabIndex = 19;
+            this.label23.Text = "Giảm giá:";
+            // 
+            // cb_VC
+            // 
+            this.cb_VC.BackColor = System.Drawing.Color.Transparent;
+            this.cb_VC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_VC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_VC.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_VC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_VC.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_VC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_VC.ItemHeight = 30;
+            this.cb_VC.Location = new System.Drawing.Point(21, 704);
+            this.cb_VC.Name = "cb_VC";
+            this.cb_VC.Size = new System.Drawing.Size(272, 36);
+            this.cb_VC.TabIndex = 18;
+            this.cb_VC.SelectedIndexChanged += new System.EventHandler(this.cb_VC_SelectedIndexChanged);
+            // 
             // UC_ThanhToanPT
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.txt_ggToida);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.txt_giamgia);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.cb_VC);
             this.Controls.Add(this.dataGridViewPT);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_chonKH);
@@ -436,6 +500,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPT)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -470,5 +535,10 @@
         private System.Windows.Forms.TextBox txt_khuyenMai;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewPT;
+        private System.Windows.Forms.TextBox txt_ggToida;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txt_giamgia;
+        private System.Windows.Forms.Label label23;
+        private Guna.UI2.WinForms.Guna2ComboBox cb_VC;
     }
 }

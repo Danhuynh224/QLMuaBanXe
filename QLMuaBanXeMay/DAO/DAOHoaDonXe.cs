@@ -138,5 +138,30 @@ namespace QLMuaBanXeMay.DAO
                 }
             }
         }
+        public static String TinhTienHoaDon(int CCCDNV, int Maxe, int mavc)
+        {
+
+            using (SqlCommand command = new SqlCommand("SELECT dbo.TinhThanhTienHDXE(@CCCDKhach,@MaXe, @MaVC)", MY_DB.getConnection()))
+            {
+                try
+                {
+                    command.Parameters.AddWithValue("@CCCDKhach", CCCDNV);
+                    command.Parameters.AddWithValue("@MaXe", Maxe);
+                    command.Parameters.AddWithValue("@MaVC", mavc);
+                    MY_DB.openConnection();
+                    string thanhtien = command.ExecuteScalar().ToString();
+
+                    MY_DB.closeConnection();
+
+                    return thanhtien;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return "0";
+                }
+
+            }
+        }
     }
 }

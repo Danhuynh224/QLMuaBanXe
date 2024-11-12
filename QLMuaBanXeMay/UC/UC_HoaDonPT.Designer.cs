@@ -722,6 +722,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "UC_HoaDonPT";
             this.Size = new System.Drawing.Size(1300, 1500);
+            this.Load += new System.EventHandler(this.UC_HoaDonPT_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonXeBindingSource)).EndInit();

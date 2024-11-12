@@ -62,7 +62,7 @@ namespace QLMuaBanXeMay.DAO
 
         internal static void ThemHoaDonXe(HoaDonXe hoaDonXe)
         {
-            using (SqlCommand checkCmd = new SqlCommand(@"SELECT CASE WHEN EXISTS (SELECT 1 FROM Nhan_Voucher WHERE CCCDKH = @CCCDKH AND MaVC = (SELECT TOP 1 MaVC FROM Voucher WHERE GiaTri <= @TongTien ORDER BY GiaTri DESC)) THEN 1 ELSE 0 END", MY_DB.getConnection()))
+            using (SqlCommand checkCmd = new SqlCommand(@"SELECT dbo.CheckVoucherExists(@CCCDKH, @TongTien)", MY_DB.getConnection()))
             {
                 try
                 {
@@ -136,6 +136,31 @@ namespace QLMuaBanXeMay.DAO
                     MessageBox.Show("Lỗi: " + ex.Message);
                     return null;
                 }
+            }
+        }
+        public static String TinhTienHoaDon(int CCCDNV, int Maxe, int mavc)
+        {
+
+            using (SqlCommand command = new SqlCommand("SELECT dbo.TinhThanhTienHDXE(@CCCDKhach,@MaXe, @MaVC)", MY_DB.getConnection()))
+            {
+                try
+                {
+                    command.Parameters.AddWithValue("@CCCDKhach", CCCDNV);
+                    command.Parameters.AddWithValue("@MaXe", Maxe);
+                    command.Parameters.AddWithValue("@MaVC", mavc);
+                    MY_DB.openConnection();
+                    string thanhtien = command.ExecuteScalar().ToString();
+
+                    MY_DB.closeConnection();
+
+                    return thanhtien;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return "0";
+                }
+
             }
         }
     }

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Class\CaLam.cs" />
     <Compile Include="Class\ChiTietCaLam.cs" />
+    <Compile Include="Class\ChiTietHoaDonLuong.cs" />
     <Compile Include="Class\DangNhap.cs" />
     <Compile Include="Class\HoaDonChiTietPhuTung.cs" />
     <Compile Include="Class\HoaDonLuong.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="DAO\DAONhanVien.cs" />
     <Compile Include="DAO\DAOPhuTung.cs" />
     <Compile Include="DAO\DAOTaiKhoan.cs" />
+    <Compile Include="DAO\DAOThongKe.cs" />
     <Compile Include="DAO\DAOThongTinKH.cs" />
     <Compile Include="DAO\DAOVoucher.cs" />
     <Compile Include="DAO\DAOXeMay.cs" />
@@ -267,6 +269,12 @@
     <Compile Include="UC\UC_ThongKeTheoThang.Designer.cs">
       <DependentUpon>UC_ThongKeTheoThang.cs</DependentUpon>
     </Compile>
+    <Compile Include="WF\Form_ChiTietHoaDonLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Form_ChiTietHoaDonLuong.Designer.cs">
+      <DependentUpon>Form_ChiTietHoaDonLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="WF\Form_ChonNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_ThongKeTheoThang.resx">
       <DependentUpon>UC_ThongKeTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Form_ChiTietHoaDonLuong.resx">
+      <DependentUpon>Form_ChiTietHoaDonLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WF\Form_ChonNV.resx">
       <DependentUpon>Form_ChonNV.cs</DependentUpon>
@@ -683,6 +694,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title_hdl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

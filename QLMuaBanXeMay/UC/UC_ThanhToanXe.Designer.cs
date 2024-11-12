@@ -600,6 +600,7 @@
             this.cb_VC.Size = new System.Drawing.Size(272, 36);
             this.cb_VC.TabIndex = 13;
             this.cb_VC.SelectedIndexChanged += new System.EventHandler(this.cb_VC_SelectedIndexChanged);
+            this.cb_VC.SelectedValueChanged += new System.EventHandler(this.cb_VC_SelectedValueChanged);
             // 
             // txt_giamgia
             // 

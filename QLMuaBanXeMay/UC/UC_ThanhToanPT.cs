@@ -125,7 +125,14 @@ namespace QLMuaBanXeMay.UC
                 txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
                 txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
             }
-            txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
+            if (cb_VC.SelectedValue != null)
+            {
+                if (Int32.TryParse(cb_VC.SelectedValue.ToString(), out maVC))
+                {
+                    txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
+                }
+
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

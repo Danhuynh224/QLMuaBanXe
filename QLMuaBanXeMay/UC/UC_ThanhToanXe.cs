@@ -114,9 +114,14 @@ namespace QLMuaBanXeMay.UC
                 hoaDonXe.CCCDNV = user.CCCDNV;
                 hoaDonXe.PTTT = cb_pttt.Text;
                 hoaDonXe.NgayXuat = dt_ngayXuat.Value;
-                DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+                if (cb_VC.SelectedItem != null)
+                {
+                    DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+                }
+                
                 DAO.DAOHoaDonXe.ThemHoaDonXe(hoaDonXe);
                 MessageBox.Show("Xuất hóa đơn thành công");
+
                 
             }
             catch

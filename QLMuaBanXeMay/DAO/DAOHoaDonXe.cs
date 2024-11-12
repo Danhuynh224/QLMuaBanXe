@@ -62,7 +62,7 @@ namespace QLMuaBanXeMay.DAO
 
         internal static void ThemHoaDonXe(HoaDonXe hoaDonXe)
         {
-            using (SqlCommand checkCmd = new SqlCommand(@"SELECT CASE WHEN EXISTS (SELECT 1 FROM Nhan_Voucher WHERE CCCDKH = @CCCDKH AND MaVC = (SELECT TOP 1 MaVC FROM Voucher WHERE GiaTri <= @TongTien ORDER BY GiaTri DESC)) THEN 1 ELSE 0 END", MY_DB.getConnection()))
+            using (SqlCommand checkCmd = new SqlCommand(@"SELECT dbo.CheckVoucherExists(@CCCDKH, @TongTien)", MY_DB.getConnection()))
             {
                 try
                 {

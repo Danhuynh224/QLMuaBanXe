@@ -44,16 +44,16 @@ namespace QLMuaBanXeMay.WF
                             string email=reader.GetString(6);
                             string chucVu = reader.GetString(7);
 
-                            if (chucVu != "Quản Lý")
-                            {
-                                DangNhap.username = txt_taikhoan.Text;
-                                DangNhap.password = txt_matkhau.Text;
-                                MY_DB.setConnectionNV();
-                            }
-                            else
-                            {
-                                MY_DB.setConnectionQL();
-                            }
+                            //if (chucVu != "Quản Lý")
+                            //{
+                            //    DangNhap.username = txt_taikhoan.Text;
+                            //    DangNhap.password = txt_matkhau.Text;
+                            //    MY_DB.setConnectionNV();
+                            //}
+                            //else
+                            //{
+                            //    MY_DB.setConnectionQL();
+                            //}
 
                             NhanVien nhanVien = new NhanVien(cccdNV,tenNV,ngaySinh,gioiTinh,sdt,diaChi,email,chucVu);
                             Form1 form1 = new Form1(nhanVien);
@@ -79,6 +79,11 @@ namespace QLMuaBanXeMay.WF
         }
 
         private void txt_matkhau_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_DangNhap_Load(object sender, EventArgs e)
         {
 
         }

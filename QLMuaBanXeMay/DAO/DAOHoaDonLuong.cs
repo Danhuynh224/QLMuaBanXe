@@ -56,5 +56,29 @@ namespace QLMuaBanXeMay.DAO
             }
         }
 
+        public static DataTable TimHoaDonLuongTheoMaHDL(string maHDL)
+        {
+            using (SqlCommand command = new SqlCommand("SELECT* FROM GetThongTinHoaDonLuongTheoMaHDL(@maHDL);", MY_DB.getConnection()))
+            {
+                try
+                {
+                    MY_DB.openConnection();
+                    command.Parameters.AddWithValue("@maHDL", "%" + maHDL + "%");
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    MY_DB.closeConnection();
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                    return null;
+                }
+            }
+        }
+
     }
 }

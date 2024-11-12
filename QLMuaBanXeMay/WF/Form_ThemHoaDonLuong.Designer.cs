@@ -115,7 +115,7 @@
             // 
             // dtpNgayXuat
             // 
-            this.dtpNgayXuat.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayXuat.CustomFormat = "MM/yyyy";
             this.dtpNgayXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayXuat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayXuat.Location = new System.Drawing.Point(803, 73);
@@ -191,6 +191,7 @@
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(170, 27);
             this.txtTongTien.TabIndex = 49;
+            this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
             // 
             // label9
             // 

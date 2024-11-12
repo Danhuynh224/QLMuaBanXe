@@ -23,56 +23,60 @@ namespace QLMuaBanXeMay.WF
 
         private void Form_ThemHoaDonLuong_Load(object sender, EventArgs e)
         {
+            dgvThongTinHoaDonNV.DataSource = DAONhanVien.LoadThongTinNhanVienCaLamHoaDon(hdl.CCCDNV);
             LoadGrid();
         }
 
         private void LoadGrid()
         {
-            dgvThongTinHoaDonNV.DataSource = DAONhanVien.LoadThongTinNhanVienCaLamHoaDon(hdl.CCCDNV);
+            txtMaNV.Text = string.Empty;
+            txtTenNV.Text = string.Empty;
+            txtChucVu.Text = string.Empty;
+            txtLuongCoBan.Text = string.Empty;
+            txtSoGioLam.Text = string.Empty;
+            txtTongTien.Text = string.Empty;
+            if (dgvThongTinHoaDonNV.Rows.Count > 0)
+            {
+                Loadtxt();
+            }    
+                
         }
+        private void Loadtxt()
+        {
+            DataGridViewRow row = dgvThongTinHoaDonNV.Rows[0];
 
+            txtMaNV.Text = row.Cells[0].Value.ToString();
+            txtTenNV.Text = row.Cells[1].Value.ToString();
+            txtChucVu.Text = row.Cells[2].Value.ToString();
+            txtLuongCoBan.Text = row.Cells[3].Value.ToString();
+            double tongGio = TongSoGio();
+            txtSoGioLam.Text = tongGio.ToString("F2");
+            double tongtien = tongGio * Int32.Parse(txtLuongCoBan.Text);
+            txtTongTien.Text = tongtien.ToString("F2");
+        }
         private void dgvThongTinHoaDonNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvThongTinHoaDonNV.Rows[e.RowIndex];
-
-                txtMaNV.Text = row.Cells[0].Value.ToString();
-                txtTenNV.Text = row.Cells[1].Value.ToString();
-                txtChucVu.Text = row.Cells[2].Value.ToString();
-                txtLuongCoBan.Text = row.Cells[3].Value.ToString();
-
-
-            }
-
-
         }
-
-        private void btnTinhTien_Click(object sender, EventArgs e)
+        private double TongSoGio()
         {
-            try
+            double tongSoGio = 0;
+
+            foreach (DataGridViewRow row in dgvThongTinHoaDonNV.Rows)
             {
-
-                if (!string.IsNullOrEmpty(txtSoGioLam.Text) && !string.IsNullOrEmpty(txtLuongCoBan.Text))
+                if (row.Cells[4].Value != null && row.Cells[5].Value != null) // Kiểm tra các giá trị không null
                 {
+                    DateTime thoiGianBatDau = Convert.ToDateTime(row.Cells[4].Value);
+                    DateTime thoiGianKetThuc = Convert.ToDateTime(row.Cells[5].Value);
 
-                    TimeSpan soGioLam = TimeSpan.Parse(txtSoGioLam.Text);
-                    double sogiolam = soGioLam.TotalHours;
-                    double luongCoBan = double.Parse(txtLuongCoBan.Text);
-
-                    // Tính lương: SoGioLam * LuongCoBan
-                    double luong = sogiolam * luongCoBan;
-
-
-                    txtTongTien.Text = luong.ToString();
+                    TimeSpan khoangThoiGian = thoiGianKetThuc - thoiGianBatDau;
+                    tongSoGio += khoangThoiGian.TotalHours;
                 }
             }
-            catch
-            {
 
-            }
+            return tongSoGio;
         }
+
 
         private void btnXuatHoaDon_Click(object sender, EventArgs e)
         {
@@ -99,23 +103,12 @@ namespace QLMuaBanXeMay.WF
         private void dtpNgayXuat_ValueChanged(object sender, EventArgs e)
         {
             dgvThongTinHoaDonNV.DataSource = DAOHoaDonLuong.LoadCaLamViecTheoNgayVaTongSoGio(hdl.CCCDNV, dtpNgayXuat.Value);
-            //if (dgvThongTinHoaDonNV.Rows.Count > 0)
-            //{
-            //    decimal totalHours = 0;
-            //    foreach (DataGridViewRow row in dgvThongTinHoaDonNV.Rows)
-            //    {
-            //        if (row.Cells["TGKetThuc"].Value != null && row.Cells["TGBatDau"].Value != null)
-            //        {
-            //            TimeSpan tgKetThuc = TimeSpan.Parse(row.Cells["TGKetThuc"].Value.ToString());
-            //            TimeSpan tgBatDau = TimeSpan.Parse(row.Cells["TGBatDau"].Value.ToString());
+            LoadGrid();  
+        }
 
-            //            decimal hoursWorked = (decimal)(tgKetThuc - tgBatDau).TotalHours;
-            //            totalHours += hoursWorked;
-            //        }
-            //    }
-            //    txtSoGioLam.Text=totalHours.ToString();
-            //    txtTongTien.Text = (totalHours * int.Parse(txtLuongCoBan.Text)).ToString();
-            
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

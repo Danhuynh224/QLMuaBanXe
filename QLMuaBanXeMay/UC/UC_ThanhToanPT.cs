@@ -21,7 +21,7 @@ namespace QLMuaBanXeMay.UC
     {
 
         int maHDPT;
-        int maVC;
+        int maVC = -1;
         Class.KhachHang khachHang_tt = new KhachHang();
         NhanVien user;
         List<ChiTietHD_PT> ListHDPT = new List<ChiTietHD_PT>();
@@ -71,9 +71,8 @@ namespace QLMuaBanXeMay.UC
 
         private void btn_XuatHD_Click(object sender, EventArgs e)
         {
-
+            DAOVoucher.XoaVoucher(maHDPT,maVC);
             DAOHoaDonPT.SuaTongTienHDPT(maHDPT, txt_thanhTien.Text,cb_pttt.Text);
-            
             
         }
         private void LoadCBB(int cccd)
@@ -100,7 +99,11 @@ namespace QLMuaBanXeMay.UC
             hoaDonPT.CCCDNV = user.CCCDNV;
             hoaDonPT.PTTT = cb_pttt.Text;
             hoaDonPT.NgayXuat = dt_ngayXuat.Value;
-            maVC = Int32.Parse(cb_VC.SelectedValue.ToString());
+            if(cb_VC.DataSource != null)
+            {
+                maVC = Int32.Parse(cb_VC.SelectedValue.ToString());
+            }
+            
             //DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, maVC);
             maHDPT = DAO.DAOHoaDonPT.ThemHoaDonPT(hoaDonPT);
 
@@ -122,7 +125,14 @@ namespace QLMuaBanXeMay.UC
                 txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
                 txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
             }
-            txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
+            if (cb_VC.SelectedValue != null)
+            {
+                if (Int32.TryParse(cb_VC.SelectedValue.ToString(), out maVC))
+                {
+                    txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
+                }
+
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

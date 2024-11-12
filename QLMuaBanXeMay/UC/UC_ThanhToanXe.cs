@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace QLMuaBanXeMay.UC
         Class.XeMay xeMay_tt = new XeMay();
         Class.KhachHang khachHang_tt = new KhachHang();
         NhanVien user;
+        int mavc=-1;
         public UC_ThanhToanXe()
         {
             InitializeComponent();
@@ -91,15 +93,15 @@ namespace QLMuaBanXeMay.UC
 
         private void txt_khuyenMai_TextChanged(object sender, EventArgs e)
         {
-            float khuyenmai;
-            double thanhTien = float.Parse(txt_donGia.Text);
-            if (float.TryParse(txt_khuyenMai.Text, out khuyenmai))
-            {
-                khuyenmai = (float)Math.Round(khuyenmai, 2);
-                thanhTien = thanhTien - (thanhTien * khuyenmai);
-            }
-            thanhTien = Math.Ceiling(thanhTien);
-            txt_thanhTien.Text = thanhTien.ToString();
+            //float khuyenmai;
+            //double thanhTien = float.Parse(txt_donGia.Text);
+            //if (float.TryParse(txt_khuyenMai.Text, out khuyenmai))
+            //{
+            //    khuyenmai = (float)Math.Round(khuyenmai, 2);
+            //    thanhTien = thanhTien - (thanhTien * khuyenmai);
+            //}
+            //thanhTien = Math.Ceiling(thanhTien);
+            txt_thanhTien.Text = DAOHoaDonXe.TinhTienHoaDon(khachHang_tt.CCCDKH, xeMay_tt.MaXe, mavc);
         }
 
         private void btn_XuatHD_Click(object sender, EventArgs e)
@@ -114,9 +116,14 @@ namespace QLMuaBanXeMay.UC
                 hoaDonXe.CCCDNV = user.CCCDNV;
                 hoaDonXe.PTTT = cb_pttt.Text;
                 hoaDonXe.NgayXuat = dt_ngayXuat.Value;
-                DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+                if (cb_VC.SelectedItem != null)
+                {
+                    DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+                }
+                
                 DAO.DAOHoaDonXe.ThemHoaDonXe(hoaDonXe);
                 MessageBox.Show("Xuất hóa đơn thành công");
+
                 
             }
             catch
@@ -133,15 +140,22 @@ namespace QLMuaBanXeMay.UC
             DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
             if (voucherTable.Rows.Count > 0)
             {
-                
                 // Gán DataTable vào ComboBox
-                cb_VC.DataSource = voucherTable;
+                cb_VC.DataSource = voucherTable;  
                 cb_VC.DisplayMember = "TenVC"; // Hiển thị tên voucher
                 cb_VC.ValueMember = "MaVC";    // Giá trị là mã voucher
+                
             }
             else
             {
                 MessageBox.Show("Không có voucher nào cho khách hàng này.");
+            }
+            if (cb_VC.SelectedValue != null)
+            {
+                MessageBox.Show("Load:  "+cb_VC.SelectedValue.ToString());
+                
+                mavc = Int32.Parse(cb_VC.SelectedValue.ToString());
+                txt_thanhTien.Text = DAOHoaDonXe.TinhTienHoaDon(khachHang_tt.CCCDKH, xeMay_tt.MaXe, mavc);
             }
         }
         private void UC_ThanhToanXe_Load(object sender, EventArgs e)
@@ -158,7 +172,24 @@ namespace QLMuaBanXeMay.UC
                 // Hiển thị giá trị và giảm giá của voucher trên TextBox
                 txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
                 txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
+
             }
+            
+            if (cb_VC.SelectedValue != null)
+            {
+                if (Int32.TryParse(cb_VC.SelectedValue.ToString(), out mavc))
+                {
+                    txt_thanhTien.Text = DAOHoaDonXe.TinhTienHoaDon(khachHang_tt.CCCDKH, xeMay_tt.MaXe, mavc);
+                }
+                
+            }
+
+        }
+
+        private void cb_VC_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

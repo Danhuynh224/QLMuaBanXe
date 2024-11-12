@@ -82,5 +82,10 @@ namespace QLMuaBanXeMay.WF
         {
 
         }
+
+        private void Form_DangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

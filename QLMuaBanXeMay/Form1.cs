@@ -39,7 +39,7 @@ namespace QLMuaBanXeMay
                 btnEmployee.Visible = false;
                 btn_QLVoucher.Visible= false;
             }
-            btnThongKe.Visible = false;
+            
         }
         private void btnEmployee_Click(object sender, EventArgs e)
         {
@@ -144,6 +144,11 @@ namespace QLMuaBanXeMay
             panel5.Controls.Clear();
             panel5.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

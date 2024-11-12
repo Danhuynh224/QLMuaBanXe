@@ -1,4 +1,5 @@
 ﻿using QLMuaBanXeMay.Class;
+using QLMuaBanXeMay.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,48 +32,40 @@ namespace QLMuaBanXeMay.UC
             int selectedMonth = int.Parse(cbbThang.SelectedItem.ToString());
             int selectedYear = DateTime.Now.Year;
 
-            using (SqlCommand cmd = new SqlCommand("sp_DoanhThuTheoNhanVien", MY_DB.getConnection()))
+            // Gọi phương thức từ DAOThongKe để lấy dữ liệu
+            DataTable dt = DAOThongKe.ThongKeDoanhThuTheoNhanVien(selectedMonth, selectedYear);
+
+            // Xóa dữ liệu và series cũ của biểu đồ
+            chartTKTheoNV.Series.Clear();
+            chartTKTheoNV.Titles.Clear();
+
+            // Thêm tiêu đề cho biểu đồ
+            chartTKTheoNV.Titles.Add("Doanh thu theo nhân viên tháng " + selectedMonth + "/" + selectedYear);
+
+            // Tạo series mới cho biểu đồ
+            Series series = new Series("DoanhThu")
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Month", selectedMonth);
-                cmd.Parameters.AddWithValue("@Year", selectedYear);
+                ChartType = SeriesChartType.Column, // Đặt kiểu biểu đồ cột
+                XValueType = ChartValueType.String,
+                YValueType = ChartValueType.Double
+            };
 
-                MY_DB.openConnection();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                // Clear existing series and data
-                chartTKTheoNV.Series.Clear();
-                chartTKTheoNV.Titles.Clear();
-
-                // Add title to the chart
-                chartTKTheoNV.Titles.Add("Doanh thu theo nhân viên tháng " + selectedMonth + "/" + selectedYear);
-
-                // Create a new series for the bar chart
-                Series series = new Series("DoanhThu");
-                series.ChartType = SeriesChartType.Column;  // Use 'Bar' for horizontal bars
-                series.XValueType = ChartValueType.String;
-                series.YValueType = ChartValueType.Double;
-
-                // Populate the chart with data
-                foreach (DataRow row in dt.Rows)
-                {
-                    string employeeName = row["TenNV"].ToString();
-                    double revenue = Convert.ToDouble(row["DoanhThu"]);
-                    series.Points.AddXY(employeeName, revenue);
-                }
-
-                // Add the series to the chart
-                chartTKTheoNV.Series.Add(series);
-
-
-                series.Color = Color.Blue;  // Change the color of the bars
-                chartTKTheoNV.ChartAreas[0].AxisX.Title = "Nhân viên";  // Label the X-axis
-                chartTKTheoNV.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";  // Label the Y-axis
-                chartTKTheoNV.ChartAreas[0].AxisX.Interval = 1;  // Ensure all employee names are shown on the axis
-                chartTKTheoNV.ChartAreas[0].AxisY.LabelStyle.Format = "{0:C0}";
+            // Thêm dữ liệu vào biểu đồ
+            foreach (DataRow row in dt.Rows)
+            {
+                string employeeName = row["TenNV"].ToString();
+                double revenue = Convert.ToDouble(row["TongDoanhThu"]);
+                series.Points.AddXY(employeeName, revenue);
             }
+
+            // Thêm series vào biểu đồ
+            chartTKTheoNV.Series.Add(series);
+
+            series.Color = Color.Blue;  // Đổi màu cho cột
+            chartTKTheoNV.ChartAreas[0].AxisX.Title = "Nhân viên";  // Đặt tên cho trục X
+            chartTKTheoNV.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";  // Đặt tên cho trục Y
+            chartTKTheoNV.ChartAreas[0].AxisX.Interval = 1;  // Đảm bảo hiển thị tất cả tên nhân viên
+            chartTKTheoNV.ChartAreas[0].AxisY.LabelStyle.Format = "{0:C0}";
         }
 
         private void cbbThang_SelectedIndexChanged(object sender, EventArgs e)

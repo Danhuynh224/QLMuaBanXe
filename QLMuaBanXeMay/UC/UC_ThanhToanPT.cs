@@ -124,5 +124,10 @@ namespace QLMuaBanXeMay.UC
             }
             txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

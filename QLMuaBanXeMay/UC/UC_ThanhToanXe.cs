@@ -91,7 +91,6 @@ namespace QLMuaBanXeMay.UC
 
         private void txt_khuyenMai_TextChanged(object sender, EventArgs e)
         {
-            int soluong;
             float khuyenmai;
             double thanhTien = float.Parse(txt_donGia.Text);
             if (float.TryParse(txt_khuyenMai.Text, out khuyenmai))
@@ -118,7 +117,7 @@ namespace QLMuaBanXeMay.UC
 
                 DAO.DAOHoaDonXe.ThemHoaDonXe(hoaDonXe);
                 MessageBox.Show("Xuất hóa đơn thành công");
-
+                DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
             }
             catch
             {

@@ -10,8 +10,8 @@ namespace QLMuaBanXeMay.Class
 {
     public class MY_DB
     {
-        static String connQL = @"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=False";
-        static SqlConnection con = new SqlConnection(connQL);
+        //static String connQL = @"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=False";
+
 
         //static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=False");
         //static SqlConnection con = new SqlConnection(@"Data Source=HONGSON;Initial Catalog=QLXePT;Integrated Security=True");
@@ -19,9 +19,9 @@ namespace QLMuaBanXeMay.Class
         //static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=False");
         //static SqlConnection con = new SqlConnection(@"Data Source=HONGSON;Initial Catalog=QLXePT;Integrated Security=True");
         //static SqlConnection con = new SqlConnection(@"Data Source=MINHTRI\SQLEXPRESS;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
-
+        static String connQL = @"Data Source=HONGSON;Initial Catalog=QLXePT;Integrated Security=True;Encrypt=False";
         //static SqlConnection con = new SqlConnection(@"Data Source=MINHTRI\SQLEXPRESS;Initial Catalog=QLXePT;Integrated Security=True;TrustServerCertificate=True");
-
+        static SqlConnection con = new SqlConnection(connQL);
 
 
         static public SqlConnection getConnection()
@@ -44,7 +44,8 @@ namespace QLMuaBanXeMay.Class
         }
         static public void setConnectionNV()
         {
-            con = new SqlConnection(@"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;User Id=" + DangNhap.username + ";Password=" + DangNhap.password + ";");
+            //con = new SqlConnection(@"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;User Id=" + DangNhap.username + ";Password=" + DangNhap.password + ";");
+            con = new SqlConnection(@"Data Source=HONGSON;Initial Catalog=QLXePT;User Id=" + DangNhap.username + ";Password=" + DangNhap.password + ";");
         }
         static public void setConnectionQL()
         {

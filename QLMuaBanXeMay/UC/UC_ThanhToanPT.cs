@@ -90,13 +90,10 @@ namespace QLMuaBanXeMay.UC
             }
             
             MessageBox.Show("Xuất hóa đơn thành công");
-
-
-
+            DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
         }
         private void tinhThanhTien()
         {
-            int soluong;
             float khuyenmai;
             double thanhTien = 0;
             foreach (ChiTietHD_PT chiTietHDPT in ListHDPT)

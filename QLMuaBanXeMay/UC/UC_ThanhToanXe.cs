@@ -114,10 +114,10 @@ namespace QLMuaBanXeMay.UC
                 hoaDonXe.CCCDNV = user.CCCDNV;
                 hoaDonXe.PTTT = cb_pttt.Text;
                 hoaDonXe.NgayXuat = dt_ngayXuat.Value;
-
+                DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
                 DAO.DAOHoaDonXe.ThemHoaDonXe(hoaDonXe);
                 MessageBox.Show("Xuất hóa đơn thành công");
-                DAOVoucher.XoaVoucher(hoaDonXe.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+                
             }
             catch
             {
@@ -127,9 +127,13 @@ namespace QLMuaBanXeMay.UC
         }
         private void LoadCBB(int cccd)
         {
+            txt_giamgia.Text = string.Empty;
+            txt_ggToida.Text = string.Empty;
+            cb_VC.DataSource = null;
             DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
             if (voucherTable.Rows.Count > 0)
             {
+                
                 // Gán DataTable vào ComboBox
                 cb_VC.DataSource = voucherTable;
                 cb_VC.DisplayMember = "TenVC"; // Hiển thị tên voucher

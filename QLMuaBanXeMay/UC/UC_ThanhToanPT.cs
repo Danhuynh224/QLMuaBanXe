@@ -77,7 +77,7 @@ namespace QLMuaBanXeMay.UC
             hoaDonPT.CCCDNV = user.CCCDNV;
             hoaDonPT.PTTT = cb_pttt.Text;
             hoaDonPT.NgayXuat = dt_ngayXuat.Value;
-
+            DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
             int maHDPT=DAO.DAOHoaDonPT.ThemHoaDonPT(hoaDonPT);
             
 
@@ -90,7 +90,7 @@ namespace QLMuaBanXeMay.UC
             }
             
             MessageBox.Show("Xuất hóa đơn thành công");
-            DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
+            
         }
         private void tinhThanhTien()
         {

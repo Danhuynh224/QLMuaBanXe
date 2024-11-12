@@ -41,8 +41,6 @@ namespace QLMuaBanXeMay.UC
                     txtMaNV.Text = row.Cells[1].Value.ToString();
                     txtTenNV.Text = row.Cells[2].Value.ToString();
                     txtChucVu.Text = row.Cells[3].Value.ToString();
-                    txtTGBatDau.Text = row.Cells[4].Value.ToString();
-                    txtTGKetThuc.Text = row.Cells[5].Value.ToString();
                     txtSoGioLam.Text = row.Cells[6].Value.ToString();
                     txtLuongCoBan.Text = row.Cells[7].Value.ToString();
                     txtTongTien.Text = row.Cells[8].Value.ToString();

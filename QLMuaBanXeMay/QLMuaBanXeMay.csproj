@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Class\CaLam.cs" />
     <Compile Include="Class\ChiTietCaLam.cs" />
+    <Compile Include="Class\ChiTietHoaDonLuong.cs" />
     <Compile Include="Class\DangNhap.cs" />
     <Compile Include="Class\HoaDonChiTietPhuTung.cs" />
     <Compile Include="Class\HoaDonLuong.cs" />

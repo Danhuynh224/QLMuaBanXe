@@ -18,6 +18,7 @@ namespace QLMuaBanXeMay.UC
     {
         public HoaDonLuong hdl = new HoaDonLuong();
         public NhanVien nv = new NhanVien();
+        public ChiTietHoaDonLuong cthdl = new ChiTietHoaDonLuong();
         public UC_HoaDonLuong()
         {
             InitializeComponent();
@@ -45,6 +46,15 @@ namespace QLMuaBanXeMay.UC
                     txtLuongCoBan.Text = row.Cells[7].Value.ToString();
                     txtTongTien.Text = row.Cells[8].Value.ToString();
                     dtpNgayXuat.Value = DateTime.Parse(row.Cells[9].Value.ToString());
+
+
+                    cthdl.CCCDNV = int.Parse(txtMaNV.Text);
+                    cthdl.ChucVu = txtChucVu.Text;
+                    cthdl.TenNV = txtTenNV.Text;
+                    cthdl.LuongCoBan = int.Parse(txtLuongCoBan.Text);
+                    cthdl.TongTien = int.Parse(txtTongTien.Text);
+                    cthdl.MaHDL = int.Parse(txtMaHD.Text);
+                    cthdl.NgayXuat = dtpNgayXuat.Value;
 
                 }
            
@@ -108,7 +118,7 @@ namespace QLMuaBanXeMay.UC
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
-            Form_ChiTietHoaDonLuong form = new Form_ChiTietHoaDonLuong();
+            Form_ChiTietHoaDonLuong form = new Form_ChiTietHoaDonLuong(cthdl);
             form.ShowDialog();
         }
     }

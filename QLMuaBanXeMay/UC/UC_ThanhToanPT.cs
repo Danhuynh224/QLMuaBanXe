@@ -20,7 +20,8 @@ namespace QLMuaBanXeMay.UC
     public partial class UC_ThanhToanPT : UserControl
     {
 
-
+        int maHDPT;
+        int maVC = -1;
         Class.KhachHang khachHang_tt = new KhachHang();
         NhanVien user;
         List<ChiTietHD_PT> ListHDPT = new List<ChiTietHD_PT>();
@@ -57,7 +58,6 @@ namespace QLMuaBanXeMay.UC
             {
                 khachHang_tt = kh.KhachHang1;
                 UC_ThanhToanPT_Load(khachHang_tt);
-                tinhThanhTien();
             }
             LoadCBB(khachHang_tt.CCCDKH);
 
@@ -66,47 +66,14 @@ namespace QLMuaBanXeMay.UC
         private void txt_cccdKH_TextChanged(object sender, EventArgs e)
         {
             txt_khuyenMai.Text = DAO.DAOHoaDonPT.LayThongTinKhuyenMai(Convert.ToInt32(txt_cccdKH.Text));
+           
         }
 
         private void btn_XuatHD_Click(object sender, EventArgs e)
         {
-            Class.HoaDonPT hoaDonPT = new HoaDonPT();
-            hoaDonPT.KhuyenMai = (double)Math.Round(double.Parse(txt_khuyenMai.Text), 2, MidpointRounding.AwayFromZero);
-            hoaDonPT.TongTien = float.Parse(txt_thanhTien.Text);
-            hoaDonPT.CCCDKH = Convert.ToInt32(txt_cccdKH.Text);
-            hoaDonPT.CCCDNV = user.CCCDNV;
-            hoaDonPT.PTTT = cb_pttt.Text;
-            hoaDonPT.NgayXuat = dt_ngayXuat.Value;
-            DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
-            int maHDPT=DAO.DAOHoaDonPT.ThemHoaDonPT(hoaDonPT);
+            DAOVoucher.XoaVoucher(maHDPT,maVC);
+            DAOHoaDonPT.SuaTongTienHDPT(maHDPT, txt_thanhTien.Text,cb_pttt.Text);
             
-
-
-            foreach (ChiTietHD_PT chiTietHDPT in ListHDPT)
-            {
-                chiTietHDPT.MaHDPT = maHDPT;
-                DAO.DAOHoaDonPT.ThemChiTietHDPT(chiTietHDPT);
-
-            }
-            
-            MessageBox.Show("Xuất hóa đơn thành công");
-            
-        }
-        private void tinhThanhTien()
-        {
-            float khuyenmai;
-            double thanhTien = 0;
-            foreach (ChiTietHD_PT chiTietHDPT in ListHDPT)
-            {
-                thanhTien += chiTietHDPT.DonGia * chiTietHDPT.SoLuong;
-            }
-            if (float.TryParse(txt_khuyenMai.Text, out khuyenmai))
-            {
-                thanhTien = thanhTien - (thanhTien * khuyenmai);
-            }
-            thanhTien = Math.Ceiling(thanhTien);
-            txt_thanhTien.Text = thanhTien.ToString();
-
         }
         private void LoadCBB(int cccd)
         {
@@ -125,6 +92,28 @@ namespace QLMuaBanXeMay.UC
             {
                 MessageBox.Show("Không có voucher nào cho khách hàng này.");
             }
+            Class.HoaDonPT hoaDonPT = new HoaDonPT();
+            hoaDonPT.KhuyenMai = (double)Math.Round(double.Parse(txt_khuyenMai.Text), 2, MidpointRounding.AwayFromZero);
+            hoaDonPT.TongTien = 10;
+            hoaDonPT.CCCDKH = Convert.ToInt32(txt_cccdKH.Text);
+            hoaDonPT.CCCDNV = user.CCCDNV;
+            hoaDonPT.PTTT = cb_pttt.Text;
+            hoaDonPT.NgayXuat = dt_ngayXuat.Value;
+            if(cb_VC.DataSource != null)
+            {
+                maVC = Int32.Parse(cb_VC.SelectedValue.ToString());
+            }
+            
+            //DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, maVC);
+            maHDPT = DAO.DAOHoaDonPT.ThemHoaDonPT(hoaDonPT);
+
+            foreach (ChiTietHD_PT chiTietHDPT in ListHDPT)
+            {
+                chiTietHDPT.MaHDPT = maHDPT;
+                DAO.DAOHoaDonPT.ThemChiTietHDPT(chiTietHDPT);
+
+            }
+            txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
         }
         private void cb_VC_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -136,6 +125,12 @@ namespace QLMuaBanXeMay.UC
                 txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
                 txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
             }
+            txt_thanhTien.Text = DAOHoaDonPT.TinhTienHoaDon(maHDPT, maVC);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

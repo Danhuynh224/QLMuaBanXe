@@ -62,7 +62,7 @@ namespace QLMuaBanXeMay
                 xeMay.LoaiXe = row.Cells["LoaiXe"].Value.ToString();
                 xeMay.MauSac = row.Cells["MauSac"].Value.ToString();
                 xeMay.PhanKhoi = Convert.ToInt32(row.Cells["PhanKhoi"].Value);
-                xeMay.CongSuat = float.Parse(row.Cells["CongSuat"].Value.ToString());
+                xeMay.CongSuat = double.Parse(row.Cells["CongSuat"].Value.ToString());
                 xeMay.HangSX = row.Cells["HangSX"].Value.ToString();
                 xeMay.NamSX = Convert.ToInt32(row.Cells["NamSX"].Value);
                 xeMay.TinhTrang = row.Cells["TinhTrang"].Value.ToString();
@@ -123,11 +123,11 @@ namespace QLMuaBanXeMay
         {
             xeMay.MaXe = Convert.ToInt32(txt_MaXe.Text);
             xeMay.TenXe = txt_TenXe.Text.ToString(); // hoặc row.Cells[0].Value.ToString()
-            xeMay.DonGia = float.Parse(txt_DonGia.Text);
+            xeMay.DonGia = double.Parse(txt_DonGia.Text);
             xeMay.LoaiXe = txt_LoaiXe.Text.ToString();
             xeMay.MauSac = txt_MauSac.Text.ToString();
             xeMay.PhanKhoi = Convert.ToInt32(txt_PhanKhoi.Text);
-            xeMay.CongSuat = float.Parse(txt_CongSuat.Text);
+            xeMay.CongSuat = double.Parse(txt_CongSuat.Text);
             xeMay.HangSX = txt_HangSX.Text;
             xeMay.NamSX = Convert.ToInt32(txt_NamSX.Text);
             xeMay.TinhTrang = txt_TinhTrang.Text;

@@ -1,4 +1,5 @@
 ﻿using QLMuaBanXeMay.Class;
+using QLMuaBanXeMay.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,47 +29,46 @@ namespace QLMuaBanXeMay.UC
 
         private void ThongKeTheoThang(int selectedYear)
         {
-            using (SqlCommand cmd = new SqlCommand("sp_TongDoanhThuTheoThang", MY_DB.getConnection()))
+
+            DataTable dt = DAOThongKe.ThongKeDoanhThuTheoThang(selectedYear);
+
+            // Clear existing series and titles
+            chartThongKeTheoThang.Series.Clear();
+            chartThongKeTheoThang.Titles.Clear();
+
+            // Add title to the chart
+            chartThongKeTheoThang.Titles.Add("Tổng doanh thu theo tháng năm " + selectedYear);
+
+            // Create a new series for the column chart
+            Series series = new Series("TongDoanhThu");
+            series.ChartType = SeriesChartType.Column;  // Set the chart type to Column
+
+            // Populate the chart with data
+            for (int month = 1; month <= 12; month++)
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Year", selectedYear);
+                // Tìm kiếm doanh thu cho tháng này
+                DataRow[] monthData = dt.Select("Thang = " + month);
 
-                MY_DB.openConnection();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                // Clear existing series
-                chartThongKeTheoThang.Series.Clear();
-                chartThongKeTheoThang.Titles.Clear();
-
-                // Add a title to the chart
-                chartThongKeTheoThang.Titles.Add("Tổng doanh thu theo tháng năm " + selectedYear);
-
-                // Create a new series for the column chart
-                Series series = new Series("TongDoanhThu");
-                series.ChartType = SeriesChartType.Column;  // Set the chart type to Column
-
-                // Populate the chart with data
-                foreach (DataRow row in dt.Rows)
+                double totalRevenue = 0;
+                if (monthData.Length > 0)
                 {
-                    int month = Convert.ToInt32(row["Thang"]);
-                    double totalRevenue = Convert.ToDouble(row["TongDoanhThu"]);
-                    series.Points.AddXY("Tháng " + month, totalRevenue); // Month and total revenue
+                    totalRevenue = Convert.ToDouble(monthData[0]["TongDoanhThu"]);
                 }
 
-                // Add the series to the chart
-                chartThongKeTheoThang.Series.Add(series);
-
-                // Customize the chart appearance
-                series.Color = Color.Blue; // Change the color of the columns
-                chartThongKeTheoThang.ChartAreas[0].AxisX.Title = "Tháng";  // Label the X-axis
-                chartThongKeTheoThang.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";  // Label the Y-axis
-                chartThongKeTheoThang.ChartAreas[0].AxisX.Interval = 1;  // Ensure all months are shown on the axis
-                chartThongKeTheoThang.ChartAreas[0].AxisY.LabelStyle.Format = "{0:C0}";  // Format Y-axis as currency
+                // Thêm điểm dữ liệu cho tháng này, nếu không có doanh thu, gán 0
+                series.Points.AddXY("Tháng " + month, totalRevenue);
             }
 
+            // Add the series to the chart
+            chartThongKeTheoThang.Series.Add(series);
 
+            // Customize the chart appearance
+            series.Color = Color.Blue; // Change the color of the columns
+            chartThongKeTheoThang.ChartAreas[0].AxisX.Title = "Tháng";  // Label the X-axis
+            chartThongKeTheoThang.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";  // Label the Y-axis
+            chartThongKeTheoThang.ChartAreas[0].AxisX.Interval = 1;  // Ensure all months are shown on the axis
+            chartThongKeTheoThang.ChartAreas[0].AxisY.LabelStyle.Format = "{0:C0}";  // Format Y-axis as currency
+ 
         }
 
         private void cbbNam_SelectedIndexChanged(object sender, EventArgs e)

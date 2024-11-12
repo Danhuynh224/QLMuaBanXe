@@ -75,6 +75,7 @@
     <Compile Include="DAO\DAONhanVien.cs" />
     <Compile Include="DAO\DAOPhuTung.cs" />
     <Compile Include="DAO\DAOTaiKhoan.cs" />
+    <Compile Include="DAO\DAOThongKe.cs" />
     <Compile Include="DAO\DAOThongTinKH.cs" />
     <Compile Include="DAO\DAOVoucher.cs" />
     <Compile Include="DAO\DAOXeMay.cs" />

@@ -65,10 +65,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSoGioLam = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTGKetThuc = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtTGBatDau = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.view_HoaDonLuongNhanVienTableAdapter = new QLMuaBanXeMay.QLXePTDataSetHoaDonLuongTableAdapters.View_HoaDonLuongNhanVienTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnTimMaHD = new System.Windows.Forms.Button();
@@ -88,9 +84,9 @@
             // 
             this.groupBox3.Controls.Add(this.dgvHoaDonLuong);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(73, 447);
+            this.groupBox3.Location = new System.Drawing.Point(73, 390);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1151, 198);
+            this.groupBox3.Size = new System.Drawing.Size(1151, 255);
             this.groupBox3.TabIndex = 54;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách hóa đơn";
@@ -139,7 +135,7 @@
             this.dgvHoaDonLuong.RowHeadersVisible = false;
             this.dgvHoaDonLuong.RowHeadersWidth = 51;
             this.dgvHoaDonLuong.RowTemplate.Height = 24;
-            this.dgvHoaDonLuong.Size = new System.Drawing.Size(1134, 164);
+            this.dgvHoaDonLuong.Size = new System.Drawing.Size(1134, 222);
             this.dgvHoaDonLuong.TabIndex = 0;
             this.dgvHoaDonLuong.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHoaDonLuong.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -389,14 +385,10 @@
             this.groupBox_spXe.Controls.Add(this.label1);
             this.groupBox_spXe.Controls.Add(this.txtSoGioLam);
             this.groupBox_spXe.Controls.Add(this.label7);
-            this.groupBox_spXe.Controls.Add(this.txtTGKetThuc);
-            this.groupBox_spXe.Controls.Add(this.label16);
-            this.groupBox_spXe.Controls.Add(this.txtTGBatDau);
-            this.groupBox_spXe.Controls.Add(this.label15);
             this.groupBox_spXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_spXe.Location = new System.Drawing.Point(73, 263);
             this.groupBox_spXe.Name = "groupBox_spXe";
-            this.groupBox_spXe.Size = new System.Drawing.Size(1151, 161);
+            this.groupBox_spXe.Size = new System.Drawing.Size(1151, 121);
             this.groupBox_spXe.TabIndex = 53;
             this.groupBox_spXe.TabStop = false;
             this.groupBox_spXe.Text = "Thông tin hóa đơn";
@@ -423,7 +415,7 @@
             // txtLuongCoBan
             // 
             this.txtLuongCoBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLuongCoBan.Location = new System.Drawing.Point(573, 90);
+            this.txtLuongCoBan.Location = new System.Drawing.Point(214, 62);
             this.txtLuongCoBan.Name = "txtLuongCoBan";
             this.txtLuongCoBan.Size = new System.Drawing.Size(170, 27);
             this.txtLuongCoBan.TabIndex = 47;
@@ -433,7 +425,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(407, 93);
+            this.label1.Location = new System.Drawing.Point(48, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 20);
             this.label1.TabIndex = 46;
@@ -442,7 +434,7 @@
             // txtSoGioLam
             // 
             this.txtSoGioLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoGioLam.Location = new System.Drawing.Point(573, 44);
+            this.txtSoGioLam.Location = new System.Drawing.Point(593, 58);
             this.txtSoGioLam.Name = "txtSoGioLam";
             this.txtSoGioLam.Size = new System.Drawing.Size(170, 27);
             this.txtSoGioLam.TabIndex = 45;
@@ -452,49 +444,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(408, 47);
+            this.label7.Location = new System.Drawing.Point(428, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 20);
             this.label7.TabIndex = 44;
             this.label7.Text = "Số giờ làm:";
-            // 
-            // txtTGKetThuc
-            // 
-            this.txtTGKetThuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTGKetThuc.Location = new System.Drawing.Point(202, 90);
-            this.txtTGKetThuc.Name = "txtTGKetThuc";
-            this.txtTGKetThuc.Size = new System.Drawing.Size(170, 27);
-            this.txtTGKetThuc.TabIndex = 43;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Blue;
-            this.label16.Location = new System.Drawing.Point(36, 93);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(146, 20);
-            this.label16.TabIndex = 42;
-            this.label16.Text = "Thời gian kết thúc:";
-            // 
-            // txtTGBatDau
-            // 
-            this.txtTGBatDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTGBatDau.Location = new System.Drawing.Point(202, 44);
-            this.txtTGBatDau.Name = "txtTGBatDau";
-            this.txtTGBatDau.Size = new System.Drawing.Size(170, 27);
-            this.txtTGBatDau.TabIndex = 41;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(37, 47);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(142, 20);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "Thời gian bắt đầu:";
             // 
             // view_HoaDonLuongNhanVienTableAdapter
             // 
@@ -605,10 +559,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox_spXe;
-        private System.Windows.Forms.TextBox txtTGKetThuc;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtTGBatDau;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn maHDLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCCDNVDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNVDataGridViewTextBoxColumn;

@@ -138,11 +138,11 @@ namespace QLMuaBanXeMay.UC
             DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
             if (voucherTable.Rows.Count > 0)
             {
-                
                 // Gán DataTable vào ComboBox
-                cb_VC.DataSource = voucherTable;
+                cb_VC.DataSource = voucherTable;  
                 cb_VC.DisplayMember = "TenVC"; // Hiển thị tên voucher
                 cb_VC.ValueMember = "MaVC";    // Giá trị là mã voucher
+                
             }
             else
             {
@@ -163,7 +163,9 @@ namespace QLMuaBanXeMay.UC
                 // Hiển thị giá trị và giảm giá của voucher trên TextBox
                 txt_giamgia.Text = selectedVoucher["GiamGia"].ToString();
                 txt_ggToida.Text = selectedVoucher["GiamGiaTD"].ToString();
+                MessageBox.Show(cb_VC.SelectedValue.ToString());
             }
+            
         }
     }
 }

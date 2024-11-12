@@ -44,6 +44,7 @@ namespace QLMuaBanXeMay.Class
         {
             //con = new SqlConnection(@"Data Source=DESKTOP-Q1R3HVB;Initial Catalog=QLXePT;User Id=" + DangNhap.username + ";Password=" + DangNhap.password + ";");
             con = new SqlConnection(@"Data Source=MINHTRI\SQLEXPRESS;Initial Catalog=QLXePT;User Id=" + DangNhap.username + ";Password=" + DangNhap.password + ";");
+
         }
         static public void setConnectionQL()
         {

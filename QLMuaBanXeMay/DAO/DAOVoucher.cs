@@ -36,6 +36,29 @@ namespace QLMuaBanXeMay.DAO
                 }
             }
         }
+        internal static void XoaVoucher(int cccd, int mavc)
+        {
+            using (SqlCommand command = new SqlCommand("XoaVoucherTrongNhan_Voucher", MY_DB.getConnection()))
+            {
+                try
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@CCCDKH", cccd);
+                    command.Parameters.AddWithValue("@MaVC ", mavc);
+
+                    MY_DB.openConnection();
+
+                    command.ExecuteNonQuery();
+
+                    MY_DB.closeConnection();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
         internal static void ThemVoucher(Voucher vc)
         {
             using (SqlCommand command = new SqlCommand("ThemVoucher", MY_DB.getConnection()))

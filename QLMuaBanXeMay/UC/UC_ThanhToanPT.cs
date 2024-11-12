@@ -77,7 +77,7 @@ namespace QLMuaBanXeMay.UC
             hoaDonPT.CCCDNV = user.CCCDNV;
             hoaDonPT.PTTT = cb_pttt.Text;
             hoaDonPT.NgayXuat = dt_ngayXuat.Value;
-
+            DAOVoucher.XoaVoucher(hoaDonPT.CCCDKH, Int32.Parse(cb_VC.SelectedValue.ToString()));
             int maHDPT=DAO.DAOHoaDonPT.ThemHoaDonPT(hoaDonPT);
             
 
@@ -90,13 +90,10 @@ namespace QLMuaBanXeMay.UC
             }
             
             MessageBox.Show("Xuất hóa đơn thành công");
-
-
-
+            
         }
         private void tinhThanhTien()
         {
-            int soluong;
             float khuyenmai;
             double thanhTien = 0;
             foreach (ChiTietHD_PT chiTietHDPT in ListHDPT)
@@ -113,6 +110,9 @@ namespace QLMuaBanXeMay.UC
         }
         private void LoadCBB(int cccd)
         {
+            txt_giamgia.Text = string.Empty;
+            txt_ggToida.Text = string.Empty;
+            cb_VC.DataSource = null;
             DataTable voucherTable = DAOVoucher.LayThongTinVC(cccd);
             if (voucherTable.Rows.Count > 0)
             {
